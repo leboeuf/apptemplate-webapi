@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" href="assets/styles.css"/>
+</head>
+<body>
+	<div id="app">
+		<h1>Configure project</h1>
+		<ul class="sections">
+			<li class="section">
+				<h3>Path</h3>
+				<div>Path to empty an directory: <input type="text" v-model="path" class="input"></div>
+			</li>
+			<li class="section">
+				<h3>Namespace</h3>
+				<div>C# namespace: <input type="text" v-model="namespace" class="input"></div>
+			</li>
+			<li class="section">
+				<h3>Model</h3>
+				<div>
+					<textarea cols="60" rows="10" v-model="model"></textarea>
+				</div>
+			</li>
+			<li class="section">
+				<h3>Database</h3>
+				<div>
+					<div>Connection string: <input type="text" v-model="connectionString" class="input-long"></div>
+				</div>
+			</li>
+			<li class="section">
+				<h3>Git</h3>
+				<div>
+					<div>Intialize git repo <input type="checkbox" v-model="gitInit"/></div>
+					<div>Perform initial commit <input type="checkbox"  v-model="gitCommit"/></div>
+					<div>Remote URL: <input type="text"  v-model="gitRemote" class="input"></div>
+				</div>
+			</li>
+		</ul>
+		<div>
+			<button class="submit">Generate</button>
+		</div>
+	</div>
+
+	<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			greeting: 'Welcome to your Vue.js app!',
+			path: '/Users/node/Documents/YourProjectName',
+			namespace: 'YourProjectName.Api',
+			connectionString: 'Host=127.0.0.1;Port=5432;Database=yourprojectname;Username=yourprojectname_user;Password=yourpassword',
+			gitInit: true,
+			gitCommit: true,
+			gitRemote: 'git@bitbucket.org:mleboeuf/YourProjectName.git',
+			model: 'User\nguid Id\nstring Username\n\nMyOtherEntity\nguid UserId\nbool IsFoo\nint Quantity'
+		},
+	})
+	</script>
+</body>
+</html>
